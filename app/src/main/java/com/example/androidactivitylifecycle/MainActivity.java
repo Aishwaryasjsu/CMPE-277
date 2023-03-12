@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    int threadCounter = 0;
+    public static int threadCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,9 +21,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
+        System.out.println("Main after restart"+threadCounter);
         threadCounter += 1;
 
         TextView threadCounterText = findViewById(R.id.thread_counter_txt);
+        System.out.println("Main after inc"+threadCounter);
         threadCounterText.setText("ThreadCounter: " + String.valueOf(threadCounter));
     }
 
